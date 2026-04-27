@@ -7,14 +7,14 @@ import androidx.navigation.compose.composable
 import com.example.codereview.ComposableScreens.CodecheckScreen
 import com.example.codereview.ComposableScreens.CodeprogressScreen
 import com.example.codereview.ComposableScreens.CoderunScreen
-import com.example.codereview.ComposableScreens.MainScreen
+import com.example.codereview.code.CodeViewModel
 
 @Composable
-fun BottomNavGraph(navController: NavHostController) {
+fun BottomNavGraph(navController: NavHostController,  codeviewModel: CodeViewModel) {
 
    NavHost(navController = navController, startDestination = Screen.Home.route) {
        composable(Screen.Home.route){
-           CoderunScreen()
+           CoderunScreen(codeviewModel)
        }
 
        composable(Screen.Search.route){

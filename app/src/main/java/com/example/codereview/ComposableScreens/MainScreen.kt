@@ -5,10 +5,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
 import com.example.codereview.Navigation.BottomNavGraph
 import com.example.codereview.Navigation.BottomNavigationBar
+import com.example.codereview.code.CodeViewModel
 
 @Composable
 fun MainScreen(){
@@ -21,8 +22,9 @@ fun MainScreen(){
         }
     ) { paddingValues ->
         Box(modifier = Modifier.padding(paddingValues)) {
-            BottomNavGraph(navController = navController)
 
+            val codeViewModel: CodeViewModel = viewModel()
+            BottomNavGraph(navController = rememberNavController(), codeviewModel = codeViewModel)
         }
 
     }}
